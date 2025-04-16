@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 
 const dummyProducts = [
   { id: 1, name: 'Toy Car', price: '₹499', description: 'A cool little toy car.' },
@@ -10,6 +11,8 @@ const dummyProducts = [
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const { addToCart } = useContext(CartContext);
+
   const product = dummyProducts.find(p => p.id === parseInt(id));
 
   if (!product) return <p>Product not found</p>;
@@ -19,7 +22,7 @@ const ProductDetail = () => {
       <h2>{product.name}</h2>
       <p>{product.description}</p>
       <p style={{ fontWeight: 'bold' }}>{product.price}</p>
-      <button>Add to Cart</button>
+      <button onClick={() => addToCart(product)}>Add to Cart</button>
     </div>
   );
 };
