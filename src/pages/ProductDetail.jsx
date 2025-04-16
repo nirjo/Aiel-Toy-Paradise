@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+import { useCart } from '../context/CartContext';
 
 const dummyProducts = [
   { id: 1, name: 'Toy Car', price: '₹499', description: 'A cool little toy car.' },
@@ -11,7 +11,7 @@ const dummyProducts = [
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
 
   const product = dummyProducts.find(p => p.id === parseInt(id));
 

@@ -1,21 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './Header.css';
 import logo from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
+import { useCart } from '../../context/CartContext';
 
 const Header = () => {
-  const { cart } = useContext(CartContext);
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const { cartItems } = useCart();
 
   return (
     <header className="header">
-      <Link to="/">
-        <img src={logo} alt="Logo" className="logo" />
-      </Link>
-      <h1>Aiel Toys Paradise</h1>
-      <Link to="/cart" style={{ marginLeft: 'auto', color: 'white' }}>
-        🛒 Cart ({totalItems})
+      <img src={logo} alt="Aiel Toys Logo" className="logo" />
+      <h1><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Aiel Toys Paradise</Link></h1>
+      <Link to="/cart" className="cart-link">
+        🛒 Cart ({cartItems.length})
       </Link>
     </header>
   );

@@ -11,3 +11,9 @@
 .logo {
   height: 50px;
 }
+.cart-link {
+  margin-left: auto;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
