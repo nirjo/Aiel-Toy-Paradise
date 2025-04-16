@@ -1,0 +1,22 @@
+.newsletter {
+  background-color: #d0ebff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.newsletter input {
+  padding: 0.5rem;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 0.5rem;
+}
+
+.newsletter button {
+  padding: 0.5rem 1rem;
+  background-color: #228be6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
